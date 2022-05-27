@@ -1,0 +1,27 @@
+<odoo noupdate="1">
+<!--no update = 1 artinya record ...&ndash;&gt;-->
+<!--= 0 artinya record in hanya di create saat instal->-->
+    <record id="sequence_perpus_pinjam_seq" model="ir.sequence">
+        <field name="name"> Pinjam Sequence </field>
+        <field name="code"> perpus.pinjam </field>
+        <field name="prefix">PINJAM/%(range_year)s(</field>
+        <field eval="3" name="padding"/>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="False" name="company_id"/>
+        <field eval="True" name="use_date_range"/>
+    </record>
+<!--        field eval untuk number-->
+
+    <record id="sequence_perpus_kembali_seq" model="ir.sequence">
+        <field name="name"> Kembali Sequence </field>
+        <field name="code"> perpus.kembali </field>
+        <field name="prefix">KEMBALI/%(range_year)s(</field>
+        <field eval="3" name="padding"/>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="False" name="company_id"/>
+        <field eval="True" name="use_date_range"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_buku_user","Access Buku for User Sales","model_perpus_buku","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_buku_admin","Access Buku for Admin","model_perpus_buku","sales_team.group_sale_manager",1,1,1,1
+"access_anggota_user","Access Anggota for User Sales","model_perpus_anggota","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_anggota_admin","Access Anggota for Admin","model_perpus_anggota","sales_team.group_sale_manager",1,1,1,1
+"access_pinjam_user","Access Pinjam for User Sales","model_perpus_pinjam","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_pinjam_admin","Access Pinjam for Admin","model_perpus_pinjam","sales_team.group_sale_manager",1,1,1,1
+"access_kembali_user","Access Kembali for User Sales","model_perpus_kembali","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kembali_admin","Access Kembali for Admin","model_perpus_kembali","sales_team.group_sale_manager",1,1,1,1
+"access_kategori_user","Access Kategori for User Sales","model_perpus_kategori","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kategori_admin","Access Kategori for Admin","model_perpus_kategori","sales_team.group_sale_manager",1,1,1,1
+

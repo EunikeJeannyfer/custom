@@ -1,0 +1,69 @@
+<odoo>
+<!--    cara comment di file xml bukan # tapi ctrl+?-->
+    <record id="anggota_view_form" model="ir.ui.view">
+        <field name="name">perpus.kategori.view.form</field>
+        <field name="model">perpus.kategori</field>
+        <field name="arch" type="xml">
+            <form string="Kategori form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary"/>
+<!--                        bisa canceled kalau hak akses manager-->
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="kode_kategori"/>
+                        </group>
+                    </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="kategori_view_list" model="ir.ui.view">
+        <field name="name">perpus.kategori.view.list</field>
+        <field name="model">perpus.kategori</field>
+        <field name="arch" type="xml">
+                <tree string="Kategori List">
+                    <field name="name"/>
+                    <field name="kode_kategori"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="kategori_view_search" model="ir.ui.view">
+        <field name="name">perpus.kategori.view.search</field>
+        <field name="model">perpus.kategori</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed_filter" domain="[('state', '=', 'confirmed')]"/>
+                <separator/>
+<!--                <filter string="Score>10" name="score10_filter" domain="[('score', '>', 10)]"/>-->
+
+                <group string="Group By..." expand="0" name="groupby">
+                    <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+<!--                    <filter string="Date" name="by_date" context="{'group_by': 'date'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="kategori_action" model="ir.actions.act_window">
+        <field name="name">Kategori</field>
+<!--            string untuk judul di list-->
+        <field name="res_model">perpus.kategori</field>
+        <field name="view_id" ref="kategori_view_list"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem id="kategori_menu" parent="perpus.perpus_menu2" name="Kategori" action="kategori_action" sequence="50"/>
+
+</odoo>
