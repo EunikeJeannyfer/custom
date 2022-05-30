@@ -1,8 +1,8 @@
 {
-    'name': 'Idea',  #nama modul yg dibaca user di UI
+    'name': 'Multidiscount',  #nama modul yg dibaca user di UI
     'version': '1.0',
     'author': 'Jeanny',
-    'summary': 'Modul Idea SIB UK Petra', #deskripsi singkat dari modul
+    'summary': 'Modul Multidiscount SIB UK Petra', #deskripsi singkat dari modul
     'description': 'Ideas management module', #bisa nampilkan gambar/ deskripsi dalam bentuk html. html diletakkan
     #di idea/static/description, bisa kasi icon modul juga.
     'category': 'Latihan',
@@ -10,11 +10,7 @@
     'depends': ['base', 'sales_team'],  # list of dependencies, conditioning startup order
     'data': [
         'security/ir.model.access.csv',
-        'views/idea_views.xml',
-        'views/voting_views.xml',
-        'views/khs_views.xml',
-        'views/nilai_views.xml',
-        'data/ir_sequence_data.xml',
+        'views/sale_order_views.xml',
     ],
     'qweb':[],  #untuk memberi tahu static file, misal CSS
     'demo': [], #demo data (for unit tests)
