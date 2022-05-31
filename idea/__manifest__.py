@@ -1,13 +1,13 @@
 {
     'name': 'Idea',  #nama modul yg dibaca user di UI
     'version': '1.0',
-    'author': 'Jeanny',
+    'author': 'Angelina',
     'summary': 'Modul Idea SIB UK Petra', #deskripsi singkat dari modul
     'description': 'Ideas management module', #bisa nampilkan gambar/ deskripsi dalam bentuk html. html diletakkan
     #di idea/static/description, bisa kasi icon modul juga.
     'category': 'Latihan',
     'website': 'http://sib.petra.ac.id',
-    'depends': ['idea', 'base', 'sales_team'],  # list of dependencies, conditioning startup order
+    'depends': ['base', 'sales_team'],  # list of dependencies, conditioning startup order
     'data': [
         'security/ir.model.access.csv',
         'views/idea_views.xml',

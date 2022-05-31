@@ -1,0 +1,1 @@
+from . import detail_nilai, kelas, khs, mahasiswa, matkul
