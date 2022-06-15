@@ -1,0 +1,106 @@
+<odoo>
+<!--    cara comment di file xml bukan # tapi ctrl+?-->
+
+    <record id="seq_penjualan" model="ir.sequence">
+        <field name="name"> Sequence Penjualan </field>
+        <field name="code">supermarket.penjualan</field>
+        <field name="number_next_actual"> 001 </field>
+        <field name="prefix">P</field>
+        <field name="padding"> 001 </field>
+    </record>
+
+    <record id="penjualan_view_form" model="ir.ui.view">
+        <field name="name">supermarket.penjualan.view.form</field>
+        <field name="model">supermarket.penjualan</field>
+        <field name="arch" type="xml">
+            <form string="Penjualan form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary"/>
+                        <!--bisa canceled kalau hak akses manager-->
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+<!--smart button-->
+<!--                    <div class="oe_button_box" name="button_box">-->
+<!--                        <button name="action_wiz_penjualan" type="object" string="Update Transaksi" class="oe_stat_button"-->
+<!--                                icon="fa-pencil-square-o">-->
+<!--                        </button>-->
+<!--                    </div>-->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="member_ids"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="total_transaksi"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detail Transaksi" name="detailpenjualan">
+                            <field name="detailpenjualan_ids" readonly="1">
+<!--                                readonly = 1 krn tidak boleh create vote dari halaman form idea ini-->
+<!--                                <tree editable="bottom" decoration-info="vote == 'yes'">-->
+                                <tree>
+                                    <field name="produk_id"/>
+                                    <field name="harga"/>
+                                    <field name="pcs"/>
+                                    <field name="jumlah"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="penjualan_view_list" model="ir.ui.view">
+        <field name="name">supermarket.penjualan.view.list</field>
+        <field name="model">supermarket.penjualan</field>
+        <field name="arch" type="xml">
+                <tree string="Penjualan List">
+                    <field name="name"/>
+                    <field name="member_ids"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="penjualan_view_search" model="ir.ui.view">
+        <field name="name">supermarket.penjualan.view.search</field>
+        <field name="model">supermarket.penjualan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed_filter" domain="[('state', '=', 'done')]"/>
+                <separator/>
+
+                <group string="Group By..." expand="0" name="groupby">
+                    <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="penjualan_action" model="ir.actions.act_window">
+        <field name="name">Penjualan</field>
+<!--            string untuk judul di list-->
+        <field name="res_model">supermarket.penjualan</field>
+        <field name="view_id" ref="penjualan_view_list"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="penjualan_menu" parent="supermarket.supermarket_mmenu" name="Penjualan"
+              action="penjualan_action" sequence="50"/>
+</odoo>

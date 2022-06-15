@@ -1,10 +1,10 @@
 <odoo>
 <!--    cara comment di file xml bukan # tapi ctrl+?-->
-    <record id="khs_view_form" model="ir.ui.view">
-        <field name="name">nilai.khs.view.form</field>
-        <field name="model">nilai.khs</field>
+    <record id="jenis_produk_view_form" model="ir.ui.view">
+        <field name="name">supermarket.jenis_produk.view.form</field>
+        <field name="model">supermarket.jenis_produk</field>
         <field name="arch" type="xml">
-            <form string="KHS form">
+            <form string="Jenis Produk form">
                 <header>
                     <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
                     <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary"/>
@@ -15,50 +15,31 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="mhs_id"/>
-                            <field name="semester"/>
-                            <field name="tahun_ajaran"/>
-                        </group>
-                        <group>
-                            <field name="ips"/>
+                            <field name="name"/>
+                            <field name="kode_jenis"/>
                         </group>
                     </group>
-                    <notebook>
-                        <page string="Nilai" name="nilai">
-                            <field name="detailkhs_id">
-                                <tree>
-                                    <field name="mk_id"/>
-                                    <field name="grade"/>
-                                    <field name="sksnya"/>
-                                    <field name="total"/>
-                                    <field name="state" invisible="1"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
 
-    <record id="khs_view_list" model="ir.ui.view">
-        <field name="name">nilai.khs.view.list</field>
-        <field name="model">nilai.khs</field>
+    <record id="jenis_produk_view_list" model="ir.ui.view">
+        <field name="name">supermarket.jenis_produk.view.list</field>
+        <field name="model">supermarket.jenis_produk</field>
         <field name="arch" type="xml">
-                <tree string="KHS List">
+                <tree string="Jenis Produk List">
                     <field name="name"/>
-                    <field name="mhs_id"/>
-                    <field name="tahun_ajaran"/>
-                    <field name="ips"/>
+                    <field name="kode_jenis"/>
                     <field name="state" invisible="1"/>
                 </tree>
         </field>
     </record>
 
-    <record id="khs_view_search" model="ir.ui.view">
-        <field name="name">nilai.khs.view.search</field>
-        <field name="model">nilai.khs</field>
+    <record id="jenis_produk_view_search" model="ir.ui.view">
+        <field name="name">supermarket.jenis_produk.view.search</field>
+        <field name="model">supermarket.jenis_produk</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
@@ -75,13 +56,15 @@
         </field>
     </record>
 
-    <record id="khs_action" model="ir.actions.act_window">
-        <field name="name">KHS</field>
-        <field name="res_model">nilai.khs</field>
-        <field name="view_id" ref="khs_view_list"/>
+    <record id="jenis_produk_action" model="ir.actions.act_window">
+        <field name="name">Jenis Produk</field>
+        <field name="res_model">supermarket.jenis_produk</field>
+        <field name="view_id" ref="jenis_produk_view_list"/>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="khs_menu" parent="nilai.nilai_menu" name="KHS" action="khs_action" sequence="30"/>
+
+    <menuitem id="jenis_menu" parent="supermarket.supermarket_mmenu" name="Jenis Produk"
+              action="jenis_produk_action" sequence="20"/>
 
 </odoo>

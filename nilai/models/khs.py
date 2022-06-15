@@ -22,6 +22,8 @@ class khs(models.Model): #inherit dari Model -> ini nama class sesuai python
                         states={'draft': [('readonly', False)]})
     ips = fields.Float("IPS", compute="_compute_ips", default=0, store=True)
 
+    detailkhs_id = fields.One2many('nilai.detailkhs', 'khs_id', domain="[('state', '=', 'done')]")
+
     state = fields.Selection(
         [('done', 'Done'),
          ('draft', 'Draft'), ('canceled', 'Canceled')], 'State', readonly=True,  # krn required, sebaiknya dikasi default

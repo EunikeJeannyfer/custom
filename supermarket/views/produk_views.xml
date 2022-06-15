@@ -1,0 +1,92 @@
+<odoo>
+<!--    cara comment di file xml bukan # tapi ctrl+?-->
+    <record id="produk_view_form" model="ir.ui.view">
+        <field name="name">supermarket.produk.view.form</field>
+        <field name="model">supermarket.produk</field>
+        <field name="arch" type="xml">
+            <form string="Produk form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary"/>
+<!--                        bisa canceled kalau hak akses manager-->
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="merk_id"/>
+                            <field name="jenis_id" state = 'done'/>
+                            <field name="variasi"/>
+                            <field name="kategori_id"/>
+                            <field name="harga"/>
+                            <field name="stok"/>
+                            <field name="sisa_stok"/>
+                        </group>
+                    </group>
+                     <notebook>
+                        <page string="Pembelian" name="pembelian">
+                            <field name="beli_ids" readonly="1">
+<!--                                readonly = 1 krn tidak boleh create vote dari halaman form idea ini-->
+<!--                                <tree editable="bottom" decoration-info="vote == 'yes'">-->
+                                <tree>
+                                    <field name="kode_pembelian"/>
+                                    <field name="produk_id"/>
+                                    <field name="pcs"/>
+                                    <field name="harga_jual"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="produk_view_list" model="ir.ui.view">
+        <field name="name">supermarket.produk.view.list</field>
+        <field name="model">supermarket.produk</field>
+        <field name="arch" type="xml">
+                <tree string="Produk List">
+                    <field name="jenis_id"/>
+                    <field name="merk_id"/>
+                    <field name="variasi"/>
+                    <field name="kategori_id"/>
+                    <field name="stok"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="produk_view_search" model="ir.ui.view">
+        <field name="name">supermarket.produk.view.search</field>
+        <field name="model">supermarket.produk</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+                <separator/>
+<!--                <filter string="Score>10" name="score10_filter" domain="[('score', '>', 10)]"/>-->
+
+                <group string="Group By..." expand="0" name="groupby">
+                    <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+<!--                    <filter string="Date" name="by_date" context="{'group_by': 'date'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="produk_action" model="ir.actions.act_window">
+        <field name="name">Produk</field>
+        <field name="res_model">supermarket.produk</field>
+        <field name="view_id" ref="produk_view_list"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="produk_menu" parent="supermarket.supermarket_mmenu" name="Produk"
+              action="produk_action" sequence="40"/>
+
+</odoo>

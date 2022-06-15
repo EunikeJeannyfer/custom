@@ -1,0 +1,17 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_produk_user","Access Produk for User Sales","model_supermarket_produk","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_produk_admin","Access Produk for Admin","model_supermarket_produk","sales_team.group_sale_manager",1,1,1,1
+"access_kategori_produk_user","Access Kategori Produk for User Sales","model_supermarket_kategori_produk","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kategori_produk_admin","Access Kategori Produk for Admin","model_supermarket_kategori_produk","sales_team.group_sale_manager",1,1,1,1
+"access_jenis_produk_user","Access Jenis Produk for User Sales","model_supermarket_jenis_produk","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_jenis_produk_admin","Access Jenis Produk for Admin","model_supermarket_jenis_produk","sales_team.group_sale_manager",1,1,1,1
+"access_merk_user","Access Merk for User Sales","model_supermarket_merk","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_merk_admin","Access Merk for Admin","model_supermarket_merk","sales_team.group_sale_manager",1,1,1,1
+"access_penjualan_user","Access Penjualan for User Sales","model_supermarket_penjualan","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_penjualan_admin","Access Penjualan for Admin","model_supermarket_penjualan","sales_team.group_sale_manager",1,1,1,1
+"access_detail_penjualan_user","Access Detail Penjualan for User Sales","model_supermarket_detailpenjualan","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detail_penjualan_admin","Access Detail Penjualan for Admin","model_supermarket_detailpenjualan","sales_team.group_sale_manager",1,1,1,1
+"access_pembelian_user","Access Pembelian for User Sales","model_supermarket_pembelian","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_pembelian_admin","Access Pembelian for Admin","model_supermarket_pembelian","sales_team.group_sale_manager",1,1,1,1
+
+

@@ -14,7 +14,8 @@
         'views/buku_views.xml',
         'views/kategori_views.xml',
         'views/kembali_views.xml',
-        'views/pinjam_views.xml'
+        'views/pinjam_views.xml',
+        'views/members_views.xml'
     ],
     'qweb':[],  #untuk memberi tahu static file, misal CSS
     'demo': [], #demo data (for unit tests)

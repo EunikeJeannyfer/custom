@@ -5,7 +5,7 @@ from odoo import models, fields, api, _
 class SaleOrder(models.Model):
     _inherit ='sale.order'
 
-    total_disc = fields.Monetary(string='Total Disc. 1', compute='_amount_all', store=True)
+    total_disc = fields.Monetary(string='Total Disc. 1', compute='_amount_all', store=True, default=0)
     total_disc2 = fields.Monetary(string='Total Disc. 2', compute='_amount_all', store=True)
 
     @api.depends('order_line.price_total')

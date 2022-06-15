@@ -1,0 +1,72 @@
+<odoo>
+<!--    cara comment di file xml bukan # tapi ctrl+?-->
+    <record id="pembelian_view_form" model="ir.ui.view">
+        <field name="name">supermarket.pembelian.view.form</field>
+        <field name="model">supermarket.pembelian</field>
+        <field name="arch" type="xml">
+            <form string="Pembelian form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary"/>
+<!--                        bisa canceled kalau hak akses manager-->
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="kode_pembelian"/>
+                            <field name="produk_id"/>
+                            <field name="pcs"/>
+                            <field name="harga_beli"/>
+                            <field name="harga_jual"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pembelian_view_list" model="ir.ui.view">
+        <field name="name">supermarket.pembelian.view.list</field>
+        <field name="model">supermarket.pembelian</field>
+        <field name="arch" type="xml">
+                <tree string="Pembelian List">
+                    <field name="kode_pembelian"/>
+                    <field name="produk_id"/>
+                    <field name="pcs"/>
+                    <field name="harga_jual"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="pembelian_view_search" model="ir.ui.view">
+        <field name="name">supermarket.pembelian.view.search</field>
+        <field name="model">supermarket.pembelian</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed_filter" domain="[('state', '=', 'done')]"/>
+                <separator/>
+
+                <group string="Group By..." expand="0" name="groupby">
+                    <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="pembelian_action" model="ir.actions.act_window">
+        <field name="name">Pembelian</field>
+<!--            string untuk judul di list-->
+        <field name="res_model">supermarket.pembelian</field>
+        <field name="view_id" ref="pembelian_view_list"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pembelian_menu" parent="supermarket.supermarket_mmenu" name="Pembelian" action="pembelian_action"
+              sequence="70"/>
+</odoo>
