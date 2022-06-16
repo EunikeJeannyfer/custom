@@ -21,7 +21,6 @@
                             <field name="kategori_id"/>
                             <field name="harga"/>
                             <field name="stok"/>
-                            <field name="sisa_stok"/>
                         </group>
                     </group>
                      <notebook>
