@@ -13,5 +13,8 @@
 "access_detail_penjualan_admin","Access Detail Penjualan for Admin","model_supermarket_detailpenjualan","sales_team.group_sale_manager",1,1,1,1
 "access_pembelian_user","Access Pembelian for User Sales","model_supermarket_pembelian","sales_team.group_sale_salesman_all_leads",1,1,1,0
 "access_pembelian_admin","Access Pembelian for Admin","model_supermarket_pembelian","sales_team.group_sale_manager",1,1,1,1
-
+"access_wiz_supermarket_penjualan_user","Access wiz_supermarket_penjualan for User Sales","model_wiz_supermarket_penjualan","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_supermarket_penjualan_admin","Access wiz_supermarket_penjualan for Admin","model_wiz_supermarket_penjualan","sales_team.group_sale_manager",1,1,1,1
+"access_wiz_supermarket_penjualan_lines_user","Access wiz_supermarket_penjualan_lines for User Sales","model_wiz_supermarket_penjualan_lines","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_supermarket_penjualan_lines_admin","Access wiz_supermarket_penjualan_lines for Admin","model_wiz_supermarket_penjualan_lines","sales_team.group_sale_manager",1,1,1,1
 

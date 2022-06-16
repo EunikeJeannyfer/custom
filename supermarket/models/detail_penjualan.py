@@ -53,7 +53,7 @@ class detailPenjualan(models.Model): #inherit dari Model -> ini nama class sesua
     #     a = detailPenjualan.harga * detailPenjualan.pcs
     #     valj["jumlah"] = a
     #
-    #     detailPenjualan.update(jumlah)
+    #     detailPenjualan.update(valj)
 
     # @api.onchange("harga", "pcs")
     # def _compute_jumlah_harga(self):

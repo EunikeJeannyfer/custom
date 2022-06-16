@@ -54,15 +54,15 @@ class penjualan(models.Model): #inherit dari Model -> ini nama class sesuai pyth
             val["total_transaksi"] += val["total_transaksi"] * 0.1
             penjualan.update(val)
 
-    # def action_wiz_penjualan(self):
-    #     return {
-    #         'type': 'ir.actions.act_window',    #return window
-    #         'name': _('Wizard Penjualan'),
-    #         'res_model': 'wiz.supermarket.penjualan',
-    #         'view_mode': 'form',
-    #         'target': 'new',
-    #         'context': {'active_id': self.id},
-    #     }
+    def action_wiz_penjualan(self):
+        return {
+            'type': 'ir.actions.act_window',    #return window
+            'name': _('Wizard Penjualan'),
+            'res_model': 'wiz.supermarket.penjualan',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'active_id': self.id},
+        }
 
 # class detailPenjualan(models.Model): #inherit dari Model -> ini nama class sesuai python
 #     _name = 'supermarket.detailpenjualan' #attribut dari class Model (lihat dokumen odoo) Modul.Model  jadi nama tabel (ini nama class/tabel sesuai odoo), jadi kalau akses data berdasarkan nama ini
